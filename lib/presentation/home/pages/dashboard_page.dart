@@ -64,7 +64,7 @@ class _DashboardPageState extends State<DashboardPage> {
           children: [
             NavItem(
               iconPath: Assets.icons.home.path,
-              label: 'Cashier',
+              label: 'Beranda',
               isActive: _selectedIndex == 0,
               onTap: () => _onItemTapped(0),
             ),

@@ -1,4 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:shoelaundry/core/extensions/int_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,7 +26,7 @@ class ProductCard extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 12.0),
           decoration: ShapeDecoration(
             shape: RoundedRectangleBorder(
               side: const BorderSide(width: 1, color: AppColors.card),
@@ -44,11 +46,11 @@ class ProductCard extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: const BorderRadius.all(Radius.circular(50.0)),
                   child: CachedNetworkImage(
-                    height: 90,
+                    height: 100,
                     fit: BoxFit.fitWidth,
                     imageUrl: '${Variables.imageBaseUrl}${data.image}',
                     placeholder: (context, url) =>
-                        const CircularProgressIndicator(),
+                    const CircularProgressIndicator(),
                     errorWidget: (context, url, error) => const Icon(
                       Icons.food_bank_outlined,
                       size: 80,
@@ -72,6 +74,24 @@ class ProductCard extends StatelessWidget {
                 style: const TextStyle(
                   color: AppColors.grey,
                   fontSize: 12,
+                ),
+              ),
+              const SpaceHeight(8.0),
+              GestureDetector(
+                onTap: (){
+                  QuickAlert.show(
+                    context: context,
+                    type: QuickAlertType.info,
+                    text: data.description,
+                  );
+                },
+                child: const Text(
+                  "See Details",
+                  style: TextStyle(
+                    color: AppColors.primary,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
               const SpaceHeight(8.0),
@@ -102,7 +122,7 @@ class ProductCard extends StatelessWidget {
                           Icons.add,
                           color: Colors.white,
                         ) //Assets.icons.orders.svg(),
-                        ),
+                    ),
                   ),
                 ],
               ),
@@ -119,26 +139,26 @@ class ProductCard extends StatelessWidget {
                 }
                 return products.any((element) => element.product == data)
                     ? products
-                                .firstWhere(
-                                    (element) => element.product == data)
-                                .quantity >
-                            0
-                        ? Positioned(
-                            top: 8,
-                            right: 8,
-                            child: CircleAvatar(
-                              backgroundColor: AppColors.primary,
-                              child: Text(
-                                products
-                                    .firstWhere(
-                                        (element) => element.product == data)
-                                    .quantity
-                                    .toString(),
-                                style: const TextStyle(color: Colors.white),
-                              ),
-                            ),
-                          )
-                        : const SizedBox()
+                    .firstWhere(
+                        (element) => element.product == data)
+                    .quantity >
+                    0
+                    ? Positioned(
+                  top: 8,
+                  right: 8,
+                  child: CircleAvatar(
+                    backgroundColor: AppColors.primary,
+                    child: Text(
+                      products
+                          .firstWhere(
+                              (element) => element.product == data)
+                          .quantity
+                          .toString(),
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  ),
+                )
+                    : const SizedBox()
                     : const SizedBox();
               },
             );

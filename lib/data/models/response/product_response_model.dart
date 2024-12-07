@@ -85,6 +85,7 @@ class Product {
         "stock": stock,
         "category": category,
         "image": image,
+    "description": description,
         "is_best_seller": isBestSeller ? 1 : 0,
         "product_id": productId,
       };
@@ -94,6 +95,7 @@ class Product {
         "stock": stock,
         "category": category,
         "image": image,
+    "description": description,
         "is_best_seller": isBestSeller ? 1 : 0,
         "product_id": id,
       };

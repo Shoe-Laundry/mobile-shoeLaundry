@@ -1,3 +1,4 @@
+import 'package:shoelaundry/core/components/buttons.dart';
 import 'package:shoelaundry/core/constants/colors.dart';
 import 'package:shoelaundry/core/extensions/build_context_ext.dart';
 import 'package:shoelaundry/presentation/auth/pages/login_page.dart';
@@ -28,7 +29,10 @@ class _SettingPageState extends State<SettingPage> {
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: const Text('Setting'),
+          title: const Text('Setting',
+              style: TextStyle(fontWeight: FontWeight.bold)),
+          elevation: 0,
+          centerTitle: true,
         ),
         body: Column(
           children: [
@@ -109,16 +113,27 @@ class _SettingPageState extends State<SettingPage> {
                 );
               },
               builder: (context, state) {
-                return ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.red,
-                  ),
-                  onPressed: () {
-                    context.read<LogoutBloc>().add(const LogoutEvent.logout());
-                  },
-                  child: const Text(
-                    'Logout',
-                    style: TextStyle(color: Colors.white),
+                // return ElevatedButton(
+                //   style: ElevatedButton.styleFrom(
+                //     backgroundColor: AppColors.red,
+                //   ),
+                //   onPressed: () {
+                //     context.read<LogoutBloc>().add(const LogoutEvent.logout());
+                //   },
+                //   child: const Text(
+                //     'Keluar',
+                //     style: TextStyle(color: Colors.white),
+                //   ),
+                // );
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Button.filled(
+                    onPressed: () {
+                      context.read<LogoutBloc>().add(const LogoutEvent.logout());
+                    },
+                    label: "Keluar",
+                    color: AppColors.red,
+                    textColor: AppColors.white,
                   ),
                 );
               },

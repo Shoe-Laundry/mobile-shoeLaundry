@@ -22,7 +22,9 @@ class AuthRemoteDatasource {
     );
     print(response.body);
     if (response.statusCode == 200) {
+      print("masukk ::: ${response.body}");
       return right(AuthResponseModel.fromJson(response.body));
+
     } else {
       return left(response.body);
     }

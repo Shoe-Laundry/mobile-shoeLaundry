@@ -36,10 +36,9 @@ class ProductRemoteDatasource {
     request.files.add(await http.MultipartFile.fromPath(
         'image', productRequestModel.image.path));
     request.headers.addAll(headers);
-
     http.StreamedResponse response = await request.send();
-
     final String body = await response.stream.bytesToString();
+
 
     if (response.statusCode == 201) {
       return right(AddProductResponseModel.fromJson(body));

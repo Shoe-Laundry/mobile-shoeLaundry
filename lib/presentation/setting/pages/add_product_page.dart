@@ -27,17 +27,18 @@ class _AddProductPageState extends State<AddProductPage> {
   TextEditingController? nameController;
   TextEditingController? priceController;
   TextEditingController? stockController;
+  TextEditingController? descriptionController;
 
-  String category = 'food';
+  String category = 'washingservice';
 
   XFile? imageFile;
 
   bool isBestSeller = false;
 
   final List<CategoryModel> categories = [
-    CategoryModel(name: 'Minuman', value: 'drink'),
-    CategoryModel(name: 'Makanan', value: 'food'),
-    CategoryModel(name: 'Snack', value: 'snack'),
+    CategoryModel(name: 'Layanan', value: 'washingservice'),
+    CategoryModel(name: 'Rawat', value: 'careandmaintenance'),
+    CategoryModel(name: 'Tambah', value: 'additionalservices'),
   ];
 
   @override
@@ -45,6 +46,7 @@ class _AddProductPageState extends State<AddProductPage> {
     nameController = TextEditingController();
     priceController = TextEditingController();
     stockController = TextEditingController();
+    descriptionController = TextEditingController();
     super.initState();
   }
 
@@ -54,6 +56,7 @@ class _AddProductPageState extends State<AddProductPage> {
     nameController!.dispose();
     priceController!.dispose();
     stockController!.dispose();
+    descriptionController!.dispose();
   }
 
   @override
@@ -97,6 +100,11 @@ class _AddProductPageState extends State<AddProductPage> {
             controller: stockController!,
             label: 'Stok Produk',
             keyboardType: TextInputType.number,
+          ),
+          const SpaceHeight(20.0),
+          CustomTextField(
+            controller: descriptionController!,
+            label: 'Deskripsi Produk',
           ),
           const SpaceHeight(20.0),
           //isBestSeller
@@ -147,22 +155,32 @@ class _AddProductPageState extends State<AddProductPage> {
                     final String name = nameController!.text;
                     final int price = priceController!.text.toIntegerFromText;
                     final int stock = stockController!.text.toIntegerFromText;
+                    final String description = descriptionController!.text;
                     final Product product = Product(
                         name: name,
                         price: price,
                         stock: stock,
+                        description: description,
                         category: category,
                         isBestSeller: isBestSeller,
                         image: imageFile!.path);
                     context
                         .read<ProductBloc>()
                         .add(ProductEvent.addProduct(product, imageFile!));
+                    print("product: $product");
                   },
                   label: 'Simpan',
                   color: AppColors.green,
                   textColor: AppColors.white,
                 );
-              });
+              },
+              error: (message) {
+                return Center(
+                  child: Text(message),
+                );
+              },
+
+              );
             },
           ),
           const SpaceHeight(10.0),

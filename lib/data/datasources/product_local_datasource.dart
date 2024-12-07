@@ -33,6 +33,7 @@ class ProductLocalDatasource {
         name TEXT,
         price INTEGER,
         stock INTEGER,
+        description TEXT,
         image TEXT,
         category TEXT,
         is_best_seller INTEGER,

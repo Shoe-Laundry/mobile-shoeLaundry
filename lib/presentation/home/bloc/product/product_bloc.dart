@@ -56,6 +56,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       final requestData = ProductRequestModel(
         name: event.product.name,
         price: event.product.price,
+        description: event.product.description ?? '',
         stock: event.product.stock,
         category: event.product.category,
         isBestSeller: event.product.isBestSeller ? 1 : 0,

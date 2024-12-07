@@ -1,8 +1,8 @@
 enum ProductCategory {
   none('None'),
-  drink('Minuman'),
-  food('Makanan'),
-  snack('Snack');
+  washingservice('Layanan'),
+  careandmaintenance('Rawat'),
+  additionalservices('Tambah');
 
   final String value;
   const ProductCategory(this.value);

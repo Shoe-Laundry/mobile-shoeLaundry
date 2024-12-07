@@ -34,22 +34,22 @@ class Onboarding extends StatelessWidget {
                     context: context,
                     pageIndex: 0,
                     imageUrl: Assets.images.onboarding1.path,
-                    title: 'Welcome to Our POS Solution!',
-                    desc: 'Transform Your Business with Ease.',
+                    title: 'Pilih Kategori Layanan',
+                    desc: 'Pilih layanan yang sesuai dengan kebutuhan sepatu Anda, mulai dari pembersihan cepat hingga perawatan mendalam. Kami juga menyediakan layanan tambahan untuk memberikan perawatan ekstra!',
                   ),
                   _page(
                     context: context,
                     pageIndex: 1,
                     imageUrl: Assets.images.onboarding2.path,
-                    title: 'Simplify Operations, Maximize Profits',
-                    desc: 'Unleash the Power of POS',
+                    title: 'Tentukan Layanan',
+                    desc: 'Kami menawarkan berbagai layanan, seperti pembersihan sepatu mulai dari yang cepat hingga mendalam, perawatan khusus untuk sepatu kulit dan bahan lainnya agar tetap awet',
                   ),
                   _page(
                     context: context,
                     pageIndex: 2,
                     imageUrl: Assets.images.onboarding3.path,
-                    title: 'Your Success, Our Priority',
-                    desc: 'Empowering Your Business Growth',
+                    title: 'Pilih dan Nikmati Hasilnya!',
+                    desc: 'Setelah layanan Anda diproses, sepatu Anda akan kembali seperti baru, siap untuk dipakai dengan bangga.',
                   ),
                 ],
               ),
@@ -81,21 +81,42 @@ class Onboarding extends StatelessWidget {
                             curve: Curves.easeInOut,
                           );
                         },
-                        child: Text('Next'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primary,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 50,
+                            vertical: 10,
+                          ),
+                        ),
+                        child: Text('Lanjut'),
                       ),
                     ),
-                    SpaceWidth(100),
+                    SpaceWidth(50),
                     Visibility(
                       visible: state.pageIndex != 3,
                       child: TextButton(
                         onPressed: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(builder: (context) {
-                              return const RegistrationPage();
+                              return const LoginPage();
                             }),
                           );
+
                         },
-                        child: Text('Get Started'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primary,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 50,
+                            vertical: 10,
+                          ),
+                        ),
+                        child: Text('Skip'),
                       ),
                     ),
                   ],
@@ -121,18 +142,22 @@ class Onboarding extends StatelessWidget {
         Padding(
             padding: const EdgeInsets.symmetric(horizontal: 100.0),
             child: Image.asset(
-              Assets.images.logo.path,
-              width: 100,
-              height: 100,
+              Assets.images.launcher.path,
+              width: 80,
+              height: 80,
             )),
-        Image.asset(
-          imageUrl,
+        SizedBox(
+          height: 300,
+          child: Image.asset(
+            imageUrl,
+          ),
         ),
         const SizedBox(height: 40),
         Text(
           title,
           style: Theme.of(context).textTheme.titleLarge,
           selectionColor: AppColors.black,
+
         ),
         SpaceHeight(10),
         Padding(
@@ -142,7 +167,7 @@ class Onboarding extends StatelessWidget {
           child: Text(
             desc,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.titleSmall,
+            style: Theme.of(context).textTheme.labelMedium,
           ),
         ),
       ],

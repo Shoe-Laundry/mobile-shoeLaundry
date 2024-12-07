@@ -37,16 +37,16 @@ class _HomePageState extends State<HomePage> {
     String category = 'all';
     switch (index) {
       case 0:
-        category = 'all';
+        category = 'semua';
         break;
       case 1:
-        category = 'drink';
+        category = 'washingservice';
         break;
       case 2:
-        category = 'food';
+        category = 'careandmaintenance';
         break;
       case 3:
-        category = 'snack';
+        category = 'additionalservices';
         break;
     }
     context.read<ProductBloc>().add(ProductEvent.fetchByCategory(category));
@@ -58,7 +58,10 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: Text('Cashier'),
+          title: const Text('Beranda',
+              style: TextStyle(fontWeight: FontWeight.bold)),
+          // backgroundColor: AppColors.primary,
+          elevation: 0,
           centerTitle: true,
         ),
         body: BlocBuilder<LoginBloc, LoginState>(
@@ -125,28 +128,28 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           MenuButton(
                             iconPath: Assets.icons.allCategories.path,
-                            label: 'All',
+                            label: 'Semua',
                             isActive: value == 0,
                             onPressed: () => onCategoryTap(0),
                           ),
                           const SpaceWidth(10.0),
                           MenuButton(
-                            iconPath: Assets.icons.drink.path,
-                            label: 'Drinks',
+                            iconPath: Assets.icons.washingservice.path,
+                            label: 'Layanan',
                             isActive: value == 1,
                             onPressed: () => onCategoryTap(1),
                           ),
                           const SpaceWidth(10.0),
                           MenuButton(
-                            iconPath: Assets.icons.food.path,
-                            label: 'Food',
+                            iconPath: Assets.icons.careandmaintenance.path,
+                            label: 'Rawat',
                             isActive: value == 2,
                             onPressed: () => onCategoryTap(2),
                           ),
                           const SpaceWidth(10.0),
                           MenuButton(
-                            iconPath: Assets.icons.snack.path,
-                            label: 'Snacks',
+                            iconPath: Assets.icons.additionalservices.path,
+                            label: 'Tambah',
                             isActive: value == 3,
                             onPressed: () => onCategoryTap(3),
                           ),

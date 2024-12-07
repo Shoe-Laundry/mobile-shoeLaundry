@@ -29,6 +29,16 @@ class _LoginPageState extends State<LoginPage> {
     passwordController.dispose();
     super.dispose();
   }
+  @override
+  void initState() {
+    super.initState();
+    _setDefaultValues();
+  }
+
+  void _setDefaultValues() {
+    usernameController.text = 'admin@gmail.com';
+    passwordController.text = 'admin';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +50,14 @@ class _LoginPageState extends State<LoginPage> {
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 100.0),
               child: Image.asset(
-                Assets.images.logo.path,
+                Assets.images.launcher.path,
                 width: 100,
                 height: 100,
               )),
+          const SpaceHeight(30.0),
           Center(
             child: Text(
-              "Welcome to MokPOS!",
+              "Selamat Datang di Shoe Laundry!",
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
@@ -57,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
           const SpaceHeight(8.0),
           Center(
             child: Text(
-              "Please proceed with the login to get started.",
+              "Silakan masuk untuk memulai layanan cuci sepatu.",
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
@@ -65,10 +76,10 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          const SpaceHeight(80.0),
+          const SpaceHeight(30.0),
           CustomTextField(
             controller: usernameController,
-            label: 'Username',
+            label: 'Email',
           ),
           const SpaceHeight(12.0),
           CustomTextField(

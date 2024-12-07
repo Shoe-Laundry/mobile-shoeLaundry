@@ -33,9 +33,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
   XFile? imageFile;
   String role = 'user';
   final List<RolesModel> roles = [
-    RolesModel(name: 'Admin', value: 'admin'),
+    // RolesModel(name: 'Admin', value: 'admin'),
     RolesModel(name: 'User', value: 'user'),
-    RolesModel(name: 'Staff', value: 'staff'),
+    // RolesModel(name: 'Staff', value: 'staff'),
   ];
 
   @override
@@ -62,17 +62,18 @@ class _RegistrationPageState extends State<RegistrationPage> {
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
-          const SpaceHeight(20.0),
+          const SpaceHeight(50.0),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 100.0),
               child: Image.asset(
-                Assets.images.logo.path,
+                Assets.images.launcher.path,
                 width: 100,
                 height: 100,
               )),
+          const SpaceHeight(30.0),
           Center(
             child: Text(
-              "Welcome to MokPOS!",
+                "Selamat Datang di Shoe Laundry!",
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
@@ -83,7 +84,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
           const SpaceHeight(8.0),
           Center(
             child: Text(
-              "Please proceed with the account registration.",
+              "Silakan daftar jika anda belum punya akun.",
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w400,

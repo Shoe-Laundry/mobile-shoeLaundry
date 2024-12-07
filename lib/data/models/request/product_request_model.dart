@@ -7,11 +7,13 @@ class ProductRequestModel {
   final int price;
   final int stock;
   final String category;
+  final String description;
   final int isBestSeller;
   final XFile image;
   ProductRequestModel({
     required this.name,
     required this.price,
+    required this.description,
     required this.stock,
     required this.category,
     required this.isBestSeller,
@@ -24,6 +26,7 @@ class ProductRequestModel {
       'price': price.toString(),
       'stock': stock.toString(),
       'category': category,
+      'description': description,
       'isBestSeller': isBestSeller.toString(),
     };
   }

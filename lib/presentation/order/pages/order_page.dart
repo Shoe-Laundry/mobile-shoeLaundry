@@ -62,7 +62,10 @@ class _OrderPageState extends State<OrderPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text('Order Detail'),
+        title: const Text('Order List',
+            style: TextStyle(fontWeight: FontWeight.bold)),
+        // backgroundColor: AppColors.primary,
+        elevation: 0,
         centerTitle: true,
       ),
       body: BlocBuilder<CheckoutBloc, CheckoutState>(

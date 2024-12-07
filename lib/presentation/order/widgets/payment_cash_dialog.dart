@@ -25,7 +25,7 @@ class PaymentCashDialog extends StatefulWidget {
 
 class _PaymentCashDialogState extends State<PaymentCashDialog> {
   TextEditingController?
-      priceController; // = TextEditingController(text: widget.price.currencyFormatRp);
+  priceController; // = TextEditingController(text: widget.price.currencyFormatRp);
 
   @override
   void initState() {
@@ -43,15 +43,15 @@ class _PaymentCashDialogState extends State<PaymentCashDialog> {
           IconButton(
             onPressed: () => context.pop(),
             icon: const Icon(Icons.highlight_off),
-            color: AppColors.red,
+            color: AppColors.primary,
           ),
           const Center(
             child: Padding(
-              padding: EdgeInsets.only(top: 12.0, left: 20),
+              padding: EdgeInsets.only(top: 12.0),
               child: Text(
                 'Pembayaran - Tunai',
                 style: TextStyle(
-                  color: AppColors.black,
+                  color: AppColors.primary,
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
                 ),
@@ -85,7 +85,7 @@ class _PaymentCashDialogState extends State<PaymentCashDialog> {
                 onPressed: () {},
                 label: 'Uang Pas',
                 disabled: true,
-                textColor: AppColors.black,
+                textColor: AppColors.primary,
                 fontSize: 13.0,
                 width: 112.0,
                 height: 50.0,
@@ -96,7 +96,7 @@ class _PaymentCashDialogState extends State<PaymentCashDialog> {
                   onPressed: () {},
                   label: widget.price.currencyFormatRp,
                   disabled: true,
-                  textColor: AppColors.black,
+                  textColor: AppColors.primary,
                   fontSize: 13.0,
                   height: 50.0,
                 ),
@@ -108,8 +108,15 @@ class _PaymentCashDialogState extends State<PaymentCashDialog> {
             listener: (context, state) {
               state.maybeWhen(
                 orElse: () {},
-                success:
-                    (data, qty, total, payment, nominal, idKasir, namaKasir) {
+                success: (
+                    data,
+                    qty,
+                    total,
+                    payment,
+                    nominal,
+                    idKasir,
+                    namaKasir,
+                    ) {
                   final orderModel = OrderModel(
                       paymentMethod: payment,
                       nominalBayar: nominal,
@@ -138,13 +145,9 @@ class _PaymentCashDialogState extends State<PaymentCashDialog> {
                 return Button.filled(
                   onPressed: () {
                     context.read<OrderBloc>().add(OrderEvent.addNominalBayar(
-                          priceController!.text.toIntegerFromText,
-                        ));
-                    // context.pop();
-                    // showDialog(
-                    //   context: context,
-                    //   builder: (context) => const PaymentSuccessDialog(),
-                    // );
+                      priceController!.text.toIntegerFromText,
+                    ));
+
                   },
                   label: 'Proses',
                 );

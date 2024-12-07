@@ -18,9 +18,17 @@ class $AssetsIconsGen {
   /// File path: assets/icons/User.svg
   SvgGenImage get user => const SvgGenImage('assets/icons/User.svg');
 
+  /// File path: assets/icons/additionalservices.svg
+  SvgGenImage get additionalservices =>
+      const SvgGenImage('assets/icons/additionalservices.svg');
+
   /// File path: assets/icons/all_categories.svg
   SvgGenImage get allCategories =>
       const SvgGenImage('assets/icons/all_categories.svg');
+
+  /// File path: assets/icons/careandmaintenance.svg
+  SvgGenImage get careandmaintenance =>
+      const SvgGenImage('assets/icons/careandmaintenance.svg');
 
   /// File path: assets/icons/cash.svg
   SvgGenImage get cash => const SvgGenImage('assets/icons/cash.svg');
@@ -36,12 +44,6 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/done.svg
   SvgGenImage get done => const SvgGenImage('assets/icons/done.svg');
-
-  /// File path: assets/icons/drink.svg
-  SvgGenImage get drink => const SvgGenImage('assets/icons/drink.svg');
-
-  /// File path: assets/icons/food.svg
-  SvgGenImage get food => const SvgGenImage('assets/icons/food.svg');
 
   /// File path: assets/icons/history.svg
   SvgGenImage get history => const SvgGenImage('assets/icons/history.svg');
@@ -67,9 +69,6 @@ class $AssetsIconsGen {
   /// File path: assets/icons/qr_code.svg
   SvgGenImage get qrCode => const SvgGenImage('assets/icons/qr_code.svg');
 
-  /// File path: assets/icons/snack.svg
-  SvgGenImage get snack => const SvgGenImage('assets/icons/snack.svg');
-
   /// File path: assets/icons/washingservice.svg
   SvgGenImage get washingservice =>
       const SvgGenImage('assets/icons/washingservice.svg');
@@ -77,14 +76,14 @@ class $AssetsIconsGen {
   /// List of all assets
   List<SvgGenImage> get values => [
         user,
+        additionalservices,
         allCategories,
+        careandmaintenance,
         cash,
         dashboard,
         debit,
         delete,
         done,
-        drink,
-        food,
         history,
         home,
         image,
@@ -93,37 +92,12 @@ class $AssetsIconsGen {
         print,
         profile,
         qrCode,
-        snack,
         washingservice
       ];
 }
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
-
-  /// File path: assets/images/f1.jpeg
-  AssetGenImage get f1 => const AssetGenImage('assets/images/f1.jpeg');
-
-  /// File path: assets/images/f2.jpeg
-  AssetGenImage get f2 => const AssetGenImage('assets/images/f2.jpeg');
-
-  /// File path: assets/images/f3.jpeg
-  AssetGenImage get f3 => const AssetGenImage('assets/images/f3.jpeg');
-
-  /// File path: assets/images/f4.jpeg
-  AssetGenImage get f4 => const AssetGenImage('assets/images/f4.jpeg');
-
-  /// File path: assets/images/f5.jpeg
-  AssetGenImage get f5 => const AssetGenImage('assets/images/f5.jpeg');
-
-  /// File path: assets/images/f6.jpeg
-  AssetGenImage get f6 => const AssetGenImage('assets/images/f6.jpeg');
-
-  /// File path: assets/images/f7.jpeg
-  AssetGenImage get f7 => const AssetGenImage('assets/images/f7.jpeg');
-
-  /// File path: assets/images/f8.jpeg
-  AssetGenImage get f8 => const AssetGenImage('assets/images/f8.jpeg');
 
   /// File path: assets/images/image-qris.png
   AssetGenImage get imageQris =>
@@ -172,14 +146,6 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
-        f1,
-        f2,
-        f3,
-        f4,
-        f5,
-        f6,
-        f7,
-        f8,
         imageQris,
         launcher,
         logo,
