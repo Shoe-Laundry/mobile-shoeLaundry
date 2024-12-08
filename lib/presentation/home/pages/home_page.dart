@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
     String category = 'all';
     switch (index) {
       case 0:
-        category = 'semua';
+        category = 'all';
         break;
       case 1:
         category = 'washingservice';
@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                             Text(
                               'Hello 👋, ${userData.name}',
                               style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.w700),
+                                  fontSize: 12, fontWeight: FontWeight.w700),
                             ),
                           ],
                         ),

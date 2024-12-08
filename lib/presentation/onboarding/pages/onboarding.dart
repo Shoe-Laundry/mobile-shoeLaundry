@@ -1,4 +1,5 @@
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:lottie/lottie.dart';
 import 'package:shoelaundry/core/assets/assets.gen.dart';
 import 'package:shoelaundry/core/components/spaces.dart';
 import 'package:shoelaundry/core/constants/colors.dart';
@@ -33,21 +34,21 @@ class Onboarding extends StatelessWidget {
                   _page(
                     context: context,
                     pageIndex: 0,
-                    imageUrl: Assets.images.onboarding1.path,
+                    imageUrl: Assets.json.onboarding1,
                     title: 'Pilih Kategori Layanan',
                     desc: 'Pilih layanan yang sesuai dengan kebutuhan sepatu Anda, mulai dari pembersihan cepat hingga perawatan mendalam. Kami juga menyediakan layanan tambahan untuk memberikan perawatan ekstra!',
                   ),
                   _page(
                     context: context,
                     pageIndex: 1,
-                    imageUrl: Assets.images.onboarding2.path,
+                    imageUrl: Assets.json.onboarding2,
                     title: 'Tentukan Layanan',
                     desc: 'Kami menawarkan berbagai layanan, seperti pembersihan sepatu mulai dari yang cepat hingga mendalam, perawatan khusus untuk sepatu kulit dan bahan lainnya agar tetap awet',
                   ),
                   _page(
                     context: context,
                     pageIndex: 2,
-                    imageUrl: Assets.images.onboarding3.path,
+                    imageUrl: Assets.json.onboarding3,
                     title: 'Pilih dan Nikmati Hasilnya!',
                     desc: 'Setelah layanan Anda diproses, sepatu Anda akan kembali seperti baru, siap untuk dipakai dengan bangga.',
                   ),
@@ -148,7 +149,7 @@ class Onboarding extends StatelessWidget {
             )),
         SizedBox(
           height: 300,
-          child: Image.asset(
+          child: Lottie.asset(
             imageUrl,
           ),
         ),

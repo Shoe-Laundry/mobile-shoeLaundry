@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../core/assets/assets.gen.dart';
 import '../../../core/components/spaces.dart';
@@ -15,8 +16,13 @@ class ProductEmpty extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Assets.icons.orders.svg(width: 114.0),
-          const SpaceHeight(4.0),
+          const SpaceHeight(16.0),
+          Lottie.asset(
+            Assets.json.empty,
+            width: 200,
+            height: 200,
+          ),
+          const SpaceHeight(16.0),
           const Text(
             'Belum ada Produk',
             textAlign: TextAlign.center,

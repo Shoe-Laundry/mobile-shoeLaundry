@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../core/assets/assets.gen.dart';
 import '../../../core/components/menu_button.dart';
@@ -71,13 +72,13 @@ class _OrderPageState extends State<OrderPage> {
       body: BlocBuilder<CheckoutBloc, CheckoutState>(
         builder: (context, state) {
           return state.maybeWhen(orElse: () {
-            return const Center(
-              child: Text('No Data'),
+            return  Center(
+              child: Lottie.asset(Assets.json.empty, width: 200, height: 200),
             );
           }, success: (data, qty, total) {
             if (data.isEmpty) {
-              return const Center(
-                child: Text('No Data'),
+              return  Center(
+                child: Lottie.asset(Assets.json.empty, width: 200, height: 200),
               );
             }
             // orders = data;

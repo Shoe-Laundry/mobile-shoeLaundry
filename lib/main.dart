@@ -76,11 +76,11 @@ class MyApp extends StatelessWidget {
               Theme.of(context).textTheme,
             ),
             appBarTheme: AppBarTheme(
-              color: AppColors.white,
+              color: AppColors.primary,
               elevation: 0,
               titleTextStyle: GoogleFonts.poppins(
-                color: AppColors.black,
-                fontSize: 16.0,
+                color: AppColors.white,
+                fontSize: 14.0,
                 fontWeight: FontWeight.w500,
               ),
               iconTheme: const IconThemeData(

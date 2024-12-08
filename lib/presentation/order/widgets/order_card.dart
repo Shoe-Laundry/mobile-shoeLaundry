@@ -57,19 +57,22 @@ class OrderCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           data.product.name,
                           style: const TextStyle(
-                            fontWeight: FontWeight.w700,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w800,
                           ),
                         ),
                         Text(
                           data.product.price.currencyFormatRp,
                           style: const TextStyle(
-                            fontWeight: FontWeight.w700,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            color: AppColors.secondary,
                           ),
                         ),
                       ],

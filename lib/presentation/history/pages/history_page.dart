@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
 
+import '../../../core/assets/assets.gen.dart';
 import '../../../core/components/spaces.dart';
 
 import '../bloc/history/history_bloc.dart';
@@ -38,8 +40,8 @@ class _HistoryPageState extends State<HistoryPage> {
         body: BlocBuilder<HistoryBloc, HistoryState>(
           builder: (context, state) {
             return state.maybeWhen(orElse: () {
-              return const Center(
-                child: Text('No data'),
+              return  Center(
+                child: Lottie.asset(Assets.json.empty, width: 200, height: 200),
               );
             }, loading: () {
               return const Center(
@@ -47,8 +49,8 @@ class _HistoryPageState extends State<HistoryPage> {
               );
             }, success: (data) {
               if (data.isEmpty) {
-                return const Center(
-                  child: Text('No data'),
+                return  Center(
+                  child: Lottie.asset(Assets.json.empty, width: 200, height: 200),
                 );
               }
               return ListView.separated(

@@ -36,8 +36,8 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _setDefaultValues() {
-    usernameController.text = 'admin@gmail.com';
-    passwordController.text = 'admin';
+    usernameController.text = 'ramdanikaisar@gmail.com';
+    passwordController.text = 'ramdani123';
   }
 
   @override

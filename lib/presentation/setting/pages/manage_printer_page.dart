@@ -1,9 +1,11 @@
+import 'package:lottie/lottie.dart';
 import 'package:shoelaundry/core/extensions/build_context_ext.dart';
 import 'package:esc_pos_utils_plus/esc_pos_utils_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:print_bluetooth_thermal/print_bluetooth_thermal.dart';
 
+import '../../../core/assets/assets.gen.dart';
 import '../../../core/components/spaces.dart';
 import '../../../core/constants/colors.dart';
 import '../models/printer_model.dart';
@@ -19,6 +21,7 @@ class ManagePrinterPage extends StatefulWidget {
 
 class _ManagePrinterPageState extends State<ManagePrinterPage> {
   int selectedIndex = 0;
+
   // final List<PrinterModel> datas = [
   //   PrinterModel(
   //     name: 'Galaxy A30',
@@ -308,7 +311,7 @@ class _Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (datas.isEmpty) {
-      return const Text('No data available');
+      return Lottie.asset(Assets.json.empty, width: 200, height: 200);
     } else {
       return Container(
         padding: const EdgeInsets.all(24.0),

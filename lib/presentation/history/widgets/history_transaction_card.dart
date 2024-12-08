@@ -2,10 +2,8 @@ import 'package:shoelaundry/core/extensions/int_ext.dart';
 import 'package:shoelaundry/core/extensions/date_time_ext.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/assets/assets.gen.dart';
 import '../../../core/constants/colors.dart';
 import '../../order/models/order_model.dart';
-import '../models/history_transaction_model.dart';
 
 class HistoryTransactionCard extends StatelessWidget {
   final OrderModel data;
@@ -52,7 +50,7 @@ class HistoryTransactionCard extends StatelessWidget {
             const SizedBox(height: 4),
             _buildRow(
               'Status Pesanan',
-              _getDeliveryStatus(data),
+              _getDeliveryStatus(transactionDateTime, data.isSync),
               color: data.isSync ? AppColors.green : AppColors.red,
             ),
             const SizedBox(height: 8),
@@ -70,11 +68,18 @@ class HistoryTransactionCard extends StatelessWidget {
     );
   }
 
-  String _getDeliveryStatus(OrderModel data) {
-    if (data.isSync) {
+  String _getDeliveryStatus(DateTime transactionDateTime, bool isSync) {
+    if (isSync) {
       return 'Siap Diambil';
     } else {
-      return 'Dalam Proses';
+      DateTime now = DateTime.now();
+      Duration difference = now.difference(transactionDateTime);
+
+      if (difference.inMinutes >= 10) {
+        return 'Siap Diambil';
+      } else {
+        return 'Dalam Proses';
+      }
     }
   }
 
@@ -109,3 +114,4 @@ class HistoryTransactionCard extends StatelessWidget {
     );
   }
 }
+

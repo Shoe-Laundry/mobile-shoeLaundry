@@ -40,11 +40,10 @@ class ProductCard extends StatelessWidget {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(12.0),
                 decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.disabled.withOpacity(0.4),
+                  shape: BoxShape.rectangle,
+                  color: AppColors.primary,
                 ),
                 child: ClipRRect(
-                  borderRadius: const BorderRadius.all(Radius.circular(50.0)),
                   child: CachedNetworkImage(
                     height: 100,
                     fit: BoxFit.fitWidth,
@@ -62,13 +61,12 @@ class ProductCard extends StatelessWidget {
               Text(
                 data.name,
                 style: const TextStyle(
-                  fontSize: 16,
+                  fontSize: 12,
                   fontWeight: FontWeight.w700,
                 ),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
-              const SpaceHeight(8.0),
               Text(
                 data.category,
                 style: const TextStyle(
@@ -76,7 +74,7 @@ class ProductCard extends StatelessWidget {
                   fontSize: 12,
                 ),
               ),
-              const SpaceHeight(8.0),
+              const SpaceHeight(4.0),
               GestureDetector(
                 onTap: (){
                   QuickAlert.show(
@@ -88,7 +86,7 @@ class ProductCard extends StatelessWidget {
                 child: const Text(
                   "See Details",
                   style: TextStyle(
-                    color: AppColors.primary,
+                    color: AppColors.secondary,
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
                   ),

@@ -122,18 +122,6 @@ class $AssetsImagesGen {
   AssetGenImage get manageProduct =>
       const AssetGenImage('assets/images/manage_product.png');
 
-  /// File path: assets/images/onboarding1.png
-  AssetGenImage get onboarding1 =>
-      const AssetGenImage('assets/images/onboarding1.png');
-
-  /// File path: assets/images/onboarding2.png
-  AssetGenImage get onboarding2 =>
-      const AssetGenImage('assets/images/onboarding2.png');
-
-  /// File path: assets/images/onboarding3.png
-  AssetGenImage get onboarding3 =>
-      const AssetGenImage('assets/images/onboarding3.png');
-
   /// File path: assets/images/order.png
   AssetGenImage get order => const AssetGenImage('assets/images/order.png');
 
@@ -152,13 +140,29 @@ class $AssetsImagesGen {
         managePrinter,
         managePrinterx,
         manageProduct,
-        onboarding1,
-        onboarding2,
-        onboarding3,
         order,
         sinkrondata,
         user
       ];
+}
+
+class $AssetsJsonGen {
+  const $AssetsJsonGen();
+
+  /// File path: assets/json/empty.json
+  String get empty => 'assets/json/empty.json';
+
+  /// File path: assets/json/onboarding1.json
+  String get onboarding1 => 'assets/json/onboarding1.json';
+
+  /// File path: assets/json/onboarding2.json
+  String get onboarding2 => 'assets/json/onboarding2.json';
+
+  /// File path: assets/json/onboarding3.json
+  String get onboarding3 => 'assets/json/onboarding3.json';
+
+  /// List of all assets
+  List<String> get values => [empty, onboarding1, onboarding2, onboarding3];
 }
 
 class Assets {
@@ -166,6 +170,7 @@ class Assets {
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsJsonGen json = $AssetsJsonGen();
 }
 
 class AssetGenImage {
